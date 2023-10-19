@@ -228,10 +228,7 @@
           </div>
         </div>
         
-        <!-- <div class="row">
-          <label class="col-md-3"> Expense Account</label>
-          <div class="col-md-6 p-3">
-            <span data-toggle="modal" data-target="#create_account" >+ Add New Account </span> -->
+       
             <div class="row">
               <label class="col-md-3">Expense Account</label>
               <div class="col-md-6 p-3">
@@ -372,17 +369,17 @@
             
             </select>
             <div class="input-group-append">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_account" style="width: 105px; height: 38px;"><p style="font-size: 13px;"> + New Account</p></button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_account" style="width: 20px; height: 38px;"><p style="font-size: 23px; margin-left: -8px;"> + </p></button>
           </div>
 
-            <!-- <a href="" data-toggle="modal" data-target="#create_account">+ Add New Account </a> -->
+          
           </div>
         </div>
              
       <div class="row">
         <label class="col-md-3">Expense Type</label>
-        <div class="col-md-6 p-3" style="color: white;">
-          <input type="radio" name="expense_type" value="goods" onclick="toggleSelects()">Goods
+        <div class="col-md-6 p-3" style="color: white;">&nbsp;
+          <input type="radio" name="expense_type" value="goods" onclick="toggleSelects()">Goods &nbsp; &nbsp;
           <input type="radio" name="expense_type" value="service" onclick="toggleSelects()">Service
         </div>
       </div>
@@ -390,13 +387,13 @@
       <div class="row" id="hsn_div" style="display: none;">
         <label id="hsn_label" for="hsn_code" class="col-md-3">HSN</label>
         <div class="col-md-6  p-3">
-          <input type="text" id="hsn_code" name="hsn_code" class="form-control text-dark bg-light " placeholder="6-digit number">
+          <input type="text" id="hsn_code" name="hsn_code" class="form-control text-dark bg-light " placeholder="6-digit number" style="width: 410px;">
         </div>
       </div>
       <div class="row" id="sac_div" style="display:flex;">
         <label id="sac_label" for="sac" class="col-md-3">SAC</label>
         <div class="col-md-6  p-3">
-          <input type="text" id="sac" name="sac" class="form-control text-dark bg-light" placeholder="6-digit number" >
+          <input type="text" id="sac" name="sac" class="form-control text-dark bg-light" placeholder="6-digit number" style="width: 410px;" >
         </div>
       </div>
       
@@ -465,6 +462,8 @@ document.getElementById("hsn_code").addEventListener("input", function() {
           <div class="input-group">
             <div class="input-group-append">
               <select class="form-control  text-dark bg-light" id="currency" name="currency" style="background-color: #888;">
+              
+              
                 <option value="INR">INR</option>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -477,7 +476,7 @@ document.getElementById("hsn_code").addEventListener("input", function() {
                 <option value="HKD">HKD</option>
               </select>
             </div>
-            <input type="number" class="form-control text-dark bg-light" id="amount" name="amount">
+            <input type="number" class="form-control text-dark bg-light" id="amount" name="amount" >
           </div>
         </div>
       </div>
@@ -498,25 +497,18 @@ document.getElementById("hsn_code").addEventListener("input", function() {
                 <option value="Petty Cash">Petty Cash</option>
                 <option value="Undeposited Funds">Undeposited Funds</option>
               </optgroup>
-              <optgroup label="Other current asset">
-                <option value="Advance tax">Advance tax</option>
-                <option value="Employee Advance">Employee Advance</option>
-                <option value="Prepaid Expenses">Prepaid Expenses</option>
-              </optgroup>
-              <optgroup label="Payment clearing account">
-                <option value="Strip Clearing Acccount">Strip Clearing Acccount</option>
-              </optgroup>
+            
             </select>
             <div class="row" id="upiTextBoxRow" style="display: none;">
               <label class="col-md-3">Ener UPI Id</label>
               <div class="col-md-6 p-3">
-                  <input type="text" class="form-control  text-dark" id="upiTextBox" name="upi_details">
+                  <input type="text" class="form-control  text-dark" id="upiTextBox" name="upi_details" style="width: 390px;">
               </div>
           </div>
           <div class="row" id="chequeTextBoxRow" style="display: none;">
             <label class="col-md-6">Cheque Number</label>
             <div class="col-md-6 p-3">
-                <input type="text" class="form-control text-dark" id="chequeTextBox" name="cheque_details">
+                <input type="text" class="form-control text-dark" id="chequeTextBox" name="cheque_details" style="width: 390px;">
             </div>
         </div>
     
@@ -557,7 +549,7 @@ document.getElementById("hsn_code").addEventListener("input", function() {
                {% endfor %} 
             </select>
             <div class="input-group-append">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newvendor" style="width: 105px; height: 38px;"><p style="font-size: 13px;"> + New vendor</p></button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newvendor" style="width: 20px; height: 38px;"><p style="font-size: 23px; margin-left: -8px;"> + </p></button>
           </div>
           </div>
      
@@ -626,16 +618,22 @@ document.getElementById("hsn_code").addEventListener("input", function() {
         </div>
         <div class="row">
           <label class="col-md-3">Reverse Charge</label>
-          <div class="col-md-6 p-3">
-            <!-- <div class="form-check"> -->
-              <input type="checkbox" name="reverse_charge" id="reverse_charge" value="True">
+          <div class="col-md-6 ">
+           
+              <!-- <input type="checkbox" name="reverse_charge" id="reverse_charge" value="True">
         
-              <!-- <label class="form-check-label" for="reverse_charge"> -->
+        
                <p class="text-white">This transaction is applicable for reverse charge</p>
-              <!-- </label> -->
+           -->
+           <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="reverse_charge" name="reverse_charge" value="True">
+            <label class="custom-control-label" for="reverse_charge">This transaction is applicable for reverse charge</label>
+        </div>
             </div>
-          <!-- </div>
-        </div> --></div>
+         
+       </div> 
+     
+    
   
         <!-- <div class="row">
           <label for="invoice" class="col-md-3">Invoice</label>
@@ -692,7 +690,56 @@ document.getElementById("hsn_code").addEventListener("input", function() {
           </div>
       </div>
      
-      
+      <script>
+        document.getElementById("destination_of_supply").addEventListener("change", function () {
+            var selectedState = this.value;
+    
+            // Get the tax select element
+            var taxSelect = document.getElementById("tax");
+    
+            // Remove all existing options
+            taxSelect.innerHTML = "";
+    
+            // Create the default options
+            var defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.text = "-- Select Tax --";
+            taxSelect.appendChild(defaultOption);
+    
+            defaultOption = document.createElement("option");
+            defaultOption.value = "Non-Taxable";
+            defaultOption.text = "Non-Taxable";
+            taxSelect.appendChild(defaultOption);
+    
+            // Create a new optgroup for "Taxes"
+            var taxesGroup = document.createElement("optgroup");
+            taxesGroup.label = "Taxes";
+            taxesGroup.value = "taxes";
+            taxesGroup.className = "scrollable";
+    
+            // Depending on the selected state, add the appropriate tax preferences
+            if (selectedState === "Kerala (KL)") {
+                var gstOptions = ["GST0[0%]", "GST3[3%]","GST5[5%]","GST12[12%]","GST18[18%]","GST28[28%]"];
+                for (var i = 0; i < gstOptions.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = gstOptions[i];
+                    option.text = gstOptions[i];
+                    taxesGroup.appendChild(option);
+                }
+            } else {
+                var igstOptions = ["IGST0[0%]", "IGST3[3%]","IGST5[5%]","IGST12[12%]","IGST18[18%]","IGST28[28%]"];
+                for (var i = 0; i < igstOptions.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = igstOptions[i];
+                    option.text = igstOptions[i];
+                    taxesGroup.appendChild(option);
+                }
+            }
+    
+            taxSelect.appendChild(taxesGroup);
+        });
+    </script>
+     
     
           
       <div class="row">
@@ -707,7 +754,7 @@ document.getElementById("hsn_code").addEventListener("input", function() {
               
               </select>
               <div class="input-group-append">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newcustomer" style="width: 105px; height: 38px;"><p style="font-size: 13px;"> + New Customer</p></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newcustomer" style="width: 20px; height: 38px;"><p style="font-size: 23px; margin-left: -8px;"> + </p></button>
             </div>
               <!-- <a href="" data-toggle="modal" data-target="#newcustomer">+ Add New Customer</a> -->
             </div>
@@ -719,13 +766,13 @@ document.getElementById("hsn_code").addEventListener("input", function() {
       <div class="row">
         <label for="notes" class="col-md-3">Notes</label>
         <div class="col-md-6 p-3">
-          <textarea class="form-control text-dark bg-light"  id="notes" name="notes" rows="4"></textarea>
+          <textarea class="form-control text-dark bg-light"  id="notes" name="notes" rows="3" style="width: 400px;"></textarea>
         </div>
         </div>
       <div class="row">
         <label for="image" class="col-md-3">Attach Receipt</label>
         <div class="col-md-6 p-3">
-        <input type="file" class="form-control text-dark bg-light" name="image">
+        <input type="file" class="form-control text-dark bg-light" name="image" style="width: 400px;">
       </div>
       </div>
     <!-- </div> -->
@@ -2225,7 +2272,7 @@ document.getElementById("hsn_code").addEventListener("input", function() {
                 <label for="v_gsttype" style="color:rgb(190, 88, 88);">GST Treatment *</label>
               </div>
               <div class="col-md-6 mt-2">
-                <select class="form-control text-dark bg-light" id="v_gsttype" name="v_gsttype" required>
+                <select class="form-control text-dark bg-light" id="v_gsttype" name="v_gsttype" required  style="width: 400px;">
                   <option selected disabled value="">Choose..</option>
                   <option value="Registered Business - Regular">Registered Business - Regular <span><i>(Business that is registered under gst)</i></span></option>
                   <option value="Registered Business - Composition">Registered Business - Composition (Business that is registered under composition scheme in gst)</option>
@@ -4285,8 +4332,48 @@ $(document).ready(function() {
 //     },
 //   });
 // }
+function fetchSourceOfSupply(vendor) {
+        // Make an AJAX request to fetch the source of supply for the selected vendor
+        $.ajax({
+            type: "GET",
+            url: "{% url 'get_company_state' %}",
+            data: {
+                vendor: vendor
+            },
+            success: function(response) {
+                var sourceOfSupply = response.source_of_supply;
 
+                // Populate the "Source of Supply" dropdown with the options
+                var sourceSelect = $("#destination_of_supply");
+                sourceSelect.empty();
+                sourceSelect.append("<option value=''>-- Select Source of Supply --</option>");
+
+                // Add the options based on the response
+                if (sourceOfSupply) {
+                    for (var i = 0; i < sourceOfSupply.length; i++) {
+                        var option = "<option value='" + sourceOfSupply[i] + "'>" + sourceOfSupply[i] + "</option>";
+                        sourceSelect.append(option);
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+
+    // Call the function when the vendor selection changes
+    $("#vendor").change(function() {
+        fetchVendorGSTTreatment();
+    });
 
 
 </script>
+
+
+
+
+
 {%endblock%}
+
+
