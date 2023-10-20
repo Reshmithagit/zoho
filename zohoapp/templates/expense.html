@@ -130,7 +130,7 @@
     }
     
 </style>
-<div class="container-fluid containerprof" >
+<!-- <div class="container-fluid containerprof" >
     
     
         <div class="card radius-15">
@@ -152,13 +152,29 @@
             <div class="card-body">
                 <div class="row">
                     <div class=" col-md-3">
-                    
-                        <!-- <div class="d-flex"> -->
+               
                             <input type="text" id="search" placeholder="Search..." class="form-control text-dark bg-light" autocomplete="off">
-                        <!-- </div> -->
+                      
                         
-
+                                
                     </div>
+
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-warning dropdown-toggle px-3 py-2" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sort
+                            </button>
+                            <div class="dropdown-menu ">
+                                <a class="dropdown-item" href="{% url 'view_customr' %}">All</a>
+                                <a class="dropdown-item" href="{% url 'view_customr_sname' %}">Name</a>
+                                <a class="dropdown-item" href="{% url 'amtcus' %}">Amount</a>
+                
+                
+                            </div>
+                        </div>
+                    </div>
+                       
+
                     <div class="col-md-6"></div>
                     <div class="col-md-3">
                         
@@ -173,8 +189,68 @@
                         <a href="{%url 'save_expense'%}" class="btn fa fa-plus text-right px-3 py-2" role="button">
                             <span class="mt-2">&nbsp;&nbsp;NEW</span>
                         </a>
+                       
                     </div>
-                </div>
+                </div> -->
+                <div class="container-fluid containerprof" >
+    
+    
+                    <div class="card radius-15">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <h2 class="mb-0 text-uppercase text-right">Expense</h2>
+                                    </div>
+                                    <div class="col-md-2">
+                                        
+            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="card radius-15 mb-5">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class=" col-md-3">
+                                <input type="text" id="search" placeholder="Search..." class="form-control text-dark bg-light px-3 py-2" autocomplete="off">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-warning dropdown-toggle px-3 py-2" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Sort
+                                    </button>
+                                    <div class="dropdown-menu ">
+                                        <a class="dropdown-item" href="{% url 'view_customr' %}">All</a>
+                                        <a class="dropdown-item" href="{% url 'view_customr_sname' %}">Name</a>
+                                        <a class="dropdown-item" href="{% url 'amtcus' %}">Amount</a>
+                        
+                        
+                                    </div>
+                                </div>
+                            </div>
+                                
+                                
+        
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                                
+                                <a class="btn text-center px-3 py-2 " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                role="button"><i class="fa fa-filter mx-3"></i>
+                                </a>
+                                <div class="dropdown-menu ">
+                                    <a class="dropdown-item" href="">All</a>
+                                    <a  class="dropdown-item" href="">Active</a>
+                                    <a  class="dropdown-item" href="">Inactive</a>
+                          
+                                </div>
+                                <a href="{%url 'save_expense'%}" class="btn fa fa-plus text-right px-3 py-2" role="button">
+                                    <span class="mt-2">&nbsp;&nbsp;NEW</span>
+                                </a>
+                            </div>
+                        </div>
+                        
                 <hr>
                 <div class="container-fluid">
                     <table class="table table-responsive-md mt-4" id="table">

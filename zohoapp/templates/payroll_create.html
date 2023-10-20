@@ -124,7 +124,7 @@
                                 <option value="10-15">10-15</option>
                                 <option value="15-31">15-31</option>
                             </select>
-                            <input type="text" class="form-control text-dark" name="salaryAmount" id="salaryAmount" placeholder="Enter Salary Amount" style="display: none;">
+                            
                         </div>
                     </div>
                     
@@ -648,34 +648,34 @@
         }
     });
 
-    $(document).ready(function () {
-        $("#filladdress").on("click", function () {
-            if (this.checked) {
-                $("#adrs1").val($("#padrs1").val());
-                $("#adrs2").val($("#padrs2").val());
+    // $(document).ready(function () {
+    //     $("#filladdress").on("click", function () {
+    //         if (this.checked) {
+    //             $("#adrs1").val($("#padrs1").val());
+    //             $("#adrs2").val($("#padrs2").val());
 
-            }
-            else {
-                $("#adrs1").val('');
-                $("#adrs2").val('');
-            }
-        });
-    });
-    const salarySelect = document.getElementById('sdate');
-    const salaryAmountInput = document.getElementById('salaryAmount');
+    //         }
+    //         else {
+    //             $("#adrs1").val('');
+    //             $("#adrs2").val('');
+    //         }
+    //     });
+    // });
+    // const salarySelect = document.getElementById('sdate');
+    // const salaryAmountInput = document.getElementById('salaryAmount');
 
-    // Add an event listener to the select element
-    salarySelect.addEventListener('change', function() {
-        // Check the selected value
-        const selectedValue = this.value;
+    // // Add an event listener to the select element
+    // salarySelect.addEventListener('change', function() {
+    //     // Check the selected value
+    //     const selectedValue = this.value;
 
-        // Show or hide the salary amount input based on the selected value
-        if (selectedValue === '1-10' || selectedValue === '10-15' || selectedValue === '15-31') {
-            salaryAmountInput.style.display = 'block'; // Show the input
-        } else {
-            salaryAmountInput.style.display = 'none'; // Hide the input
-        }
-    });
+    //     // Show or hide the salary amount input based on the selected value
+    //     if (selectedValue === '1-10' || selectedValue === '10-15' || selectedValue === '15-31') {
+    //         salaryAmountInput.style.display = 'block'; // Show the input
+    //     } else {
+    //         salaryAmountInput.style.display = 'none'; // Hide the input
+    //     }
+    // });
 
     function calculateAge() {
       // Get the selected date of birth from the input field

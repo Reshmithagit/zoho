@@ -238,8 +238,8 @@
                     </div>
                     <div class="gen-info col-6 " style="padding-left: 3rem;">
                         <div class="photo text-center py-3" style="height: 30vh;">
-                            <a href="{% url 'img_download' p.id %}" download>
-                                <img class="img-fluid" src="{{p.image.url}}" alt="" width="150px" name="img">
+                            <a href=" " download>
+                                <img class="img-fluid" src=" " alt="" width="150px" name="img">
                             </a>
 
                         </div>
@@ -297,6 +297,12 @@
                                     <p class="h3">{{p.salary}} INR</p>
                                 </div>
                             </div>
+                            <div class="row mt-2">
+                                <div class="col-5"><label for="">Salary Date Range :</label></div>
+                                <div class="col-7">
+                                    <p class="bold">{{p.salaryrange}}</p>
+                                </div>
+                        </div>
                             <hr>
                             <!-- <div class="card-title my-2">General information <hr></div> -->
 
@@ -330,6 +336,11 @@
                                 <div class="col-7">
                                     <p class="bold">{{p.dob}}</p>
                                 </div>
+                                <div class="row mt-2">
+                                    <div class="col-5"><label for="">Age :</label></div>
+                                    <div class="col-7">
+                                        <p class="bold">{{p.age}}</p>
+                                    </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-5"><label for="">Parent Name :</label></div>

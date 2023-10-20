@@ -576,7 +576,7 @@ document.getElementById("hsn_code").addEventListener("input", function() {
         <div class="row">
           <label for="destination_of_supply" class="col-md-3">Destination of Supply</label>
           <div class="col-md-6 p-3">
-            <select class="form-control text-dark bg-light form-select" id="destination_of_supply" name="destination_of_supply">
+            <select class="form-control text-dark bg-light form-select" id="destination_of_supply" name="destination_of_supply" value="destination_of_supply">
               <option value="">-- Select Destination State --</option>
               <option value="Andaman and Nicobar Islands (AN)">Andaman and Nicobar Islands (AN)</option>
               <option value="Andhra Pradesh (AP)">Andhra Pradesh (AP)</option>
@@ -4332,44 +4332,40 @@ $(document).ready(function() {
 //     },
 //   });
 // }
-function fetchSourceOfSupply(vendor) {
-        // Make an AJAX request to fetch the source of supply for the selected vendor
-        $.ajax({
-            type: "GET",
-            url: "{% url 'get_company_state' %}",
-            data: {
-                vendor: vendor
-            },
-            success: function(response) {
-                var sourceOfSupply = response.source_of_supply;
 
-                // Populate the "Source of Supply" dropdown with the options
-                var sourceSelect = $("#destination_of_supply");
-                sourceSelect.empty();
-                sourceSelect.append("<option value=''>-- Select Source of Supply --</option>");
+</script>
 
-                // Add the options based on the response
-                if (sourceOfSupply) {
-                    for (var i = 0; i < sourceOfSupply.length; i++) {
-                        var option = "<option value='" + sourceOfSupply[i] + "'>" + sourceOfSupply[i] + "</option>";
-                        sourceSelect.append(option);
-                    }
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
+<script>
+  $(document).ready(function() {
+    // Function to fetch the destination of supply
+    function fetchVendorDestinationOfSupply() {
+      var selectedVendor = $("#vendor").val();
+      console.log("Selected Vendor:", selectedVendor);
+
+      $.ajax({
+        type: "GET",
+        url: "{% url 'get_vendor_destination_of_supply' %}",
+        data: {
+          vendor: selectedVendor
+        },
+        success: function (response) {
+          var destinationOfSupply = response.destination_of_supply;
+
+          // Update the "Destination of Supply" field in your HTML
+          $("#destination_of_supply").val(destinationOfSupply);
+        },
+        error: function (xhr, status, error) {
+          console.error(error);
+        }
+      });
     }
 
     // Call the function when the vendor selection changes
     $("#vendor").change(function() {
-        fetchVendorGSTTreatment();
+      fetchVendorDestinationOfSupply();
     });
-
-
+  });
 </script>
-
 
 
 

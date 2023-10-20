@@ -457,6 +457,7 @@ urlpatterns = [
     path('expense_pay', views.expense_pay, name='expense_pay'),
     path('pay_dropdownE', views.pay_dropdownE, name='pay_dropdownE'),
     path('get_vendor_gst_treatment', views.get_vendor_gst_treatment, name='get_vendor_gst_treatment'),
+    path('get_vendor_destination_of_supply', views.get_vendor_destination_of_supply, name='get_vendor_destination_of_supply'),
     path('get_company_state', views.get_company_state, name='get_company_state'),
     
     path('report_inventory_view',views.report_inventory_view,name='report_inventory_view'),

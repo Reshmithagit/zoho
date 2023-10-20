@@ -104,6 +104,21 @@
                         <div class="col-6"><input type="date" class="form-control text-dark" name="joindate"
                                 value="{{pay.joindate | date:'Y-m-d'}}"></div>
                     </div>
+
+                    <div class="row pb-3">
+                        <div class="col-6">
+                            <label for="sdate">Salary Date</label>
+                        </div>
+                        <div class="input-container col-6">
+                            <select class="form-control text-dark" name="salary" id="sdate" >
+                                <option value="">Select date range</option>
+                                <option value="1-10" {% if pay.salaryrange == "1-10" %}selected{% endif %}>1-10</option>
+                                <option value="10-15" {% if pay.salaryrange == "10-15" %}selected{% endif %}>10-15</option>
+                                <option value="15-31" {% if pay.salaryrange == "15-31" %}selected{% endif %}>15-31</option>
+                            </select>
+                            
+                        </div>
+                    </div>
                     <div id="fixed">
                         <div class="row">
                             <div class="col-6">
@@ -124,7 +139,7 @@
                         </div>
                         <div class="col-7 imgedit">
                             <label for="image-input">
-                                <img src="{{ pay.image.url }}" alt="" width="190px" height="200px" id="img"
+                                <img src=" " alt="" width="190px" height="200px" id="img"
                                     style="background-color: rgba(156, 156, 156, 0.267); border-radius: 30px;">
                             </label>
                             <input id="image-input" type="file" name="file" class="form-control" accept="image/*"
@@ -183,8 +198,15 @@
                         <div class="col-6">
                             <label for="">Date of Birth</label>
                         </div>
-                        <div class="col-6"><input type="date" class="form-control text-dark" name="dob"
+                        <div class="col-6"><input type="date" class="form-control text-dark" name="dob"  onchange="calculateAge()" 
                                 value="{{pay.dob | date:'Y-m-d'}}"></div>
+                    </div>
+
+                    <div class="row pb-3">
+                        <div class="col-6">
+                            <label for="">Age</label>
+                        </div>
+                        <div class="col-6"><input type="" class="form-control text-dark"  id="age" name="age" readonly value="{{pay.age}}"></div>
                     </div>
                     <div class="row pb-3">
                         <div class="col-6">
@@ -593,6 +615,24 @@
 
     }
     
+
+    function calculateAge() {
+    // Get the selected date of birth from the input field
+    const dobInput = document.querySelector("input[name='dob']");
+    const dobValue = dobInput.value;
+
+    // Check if the date of birth is not empty
+    if (dobValue) {
+        const selectedDateOfBirth = new Date(dobValue);
+        const currentDate = new Date();
+        const age = currentDate.getFullYear() - selectedDateOfBirth.getFullYear();
+
+        // Display the calculated age in the age input field
+        const ageInput = document.querySelector("input[name='age']");
+        ageInput.value = age;
+    }
+}
+
     </script>
     <script>
         document.getElementById("acc_no").addEventListener("input", function () {
@@ -605,6 +645,8 @@
                             inputvalue.addEventListener("input", function () {
                                 inputvalue.value = inputvalue.value.toUpperCase();
                             });
+
+
     </script>
 </section>
 {% endblock %}

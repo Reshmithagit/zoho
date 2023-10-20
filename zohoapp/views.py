@@ -10566,7 +10566,32 @@ def get_vendor_gst_treatment(request):
     else:
      
         return JsonResponse({'gst_treatment': None, 'gstin': None})
-    
+
+def get_vendor_destination_of_supply(request):
+    # Get the user associated with the request
+    v_user = request.user
+    user = User.objects.get(id=v_user.id)
+
+    # Extract the vendor_name parameter from the GET request
+    vendor_name = request.GET.get('vendor')
+
+    if vendor_name:
+        try:
+            # Fetch the vendor object based on the vendor_name and user
+            vendor = vendor_table.objects.get(id=vendor_name, user=user)
+            destination_of_supply = vendor.destination_of_supply
+        except vendor_table.DoesNotExist:
+            destination_of_supply = None
+
+        # Log the values for debugging
+        print(f"Vendor Name: {vendor_name}, Destination of Supply: {destination_of_supply}")
+
+        # Return the destination of supply as JSON response
+        return JsonResponse({'destination_of_supply': destination_of_supply})
+    else:
+        # If no vendor is selected, return None for destination of supply
+        return JsonResponse({'destination_of_supply': None})
+ 
     
 def get_company_state(request):
     user = request.user
