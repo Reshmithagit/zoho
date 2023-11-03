@@ -10579,15 +10579,15 @@ def get_vendor_destination_of_supply(request):
         try:
             # Fetch the vendor object based on the vendor_name and user
             vendor = vendor_table.objects.get(id=vendor_name, user=user)
-            destination_of_supply = vendor.destination_of_supply
+            source_supply = vendor.source_supply
         except vendor_table.DoesNotExist:
-            destination_of_supply = None
+            source_supply = None
 
         # Log the values for debugging
-        print(f"Vendor Name: {vendor_name}, Destination of Supply: {destination_of_supply}")
+        print(f"Vendor Name: {vendor_name}, Destination of Supply: {source_supply}")
 
         # Return the destination of supply as JSON response
-        return JsonResponse({'destination_of_supply': destination_of_supply})
+        return JsonResponse({'destination_of_supply': source_supply})
     else:
         # If no vendor is selected, return None for destination of supply
         return JsonResponse({'destination_of_supply': None})

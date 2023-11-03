@@ -850,7 +850,12 @@ class Payroll(models.Model):
     age = models.PositiveIntegerField(default=0)
     salaryrange = models.CharField(max_length=10, choices=[('1-10', '1-10'), ('10-15', '10-15'), ('15-31', '15-31')], default='1-10')
 
-    
+    def __str__(self):
+        # Change the date format to 'YYYY-MM-DD'
+        return self.dob.strftime('%Y-%m-%d')
+    def __str__(self):
+        # Change the date format to 'YYYY-MM-DD'
+        return self.joindate.strftime('%Y-%m-%d')
     
 class Bankdetails(models.Model):
     acc_no = models.BigIntegerField()  
