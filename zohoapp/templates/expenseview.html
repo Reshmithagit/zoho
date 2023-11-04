@@ -492,129 +492,62 @@
             <hr class="hr">
 
 
-            <div id="Template" class=" print-only page tabcontent p-5 m-3" style="display: block; background-color:azure">
-                <div class="row pt-0 m-0 text-center">
-                    <div class="col-4 "></div>
-                    <div class="col-4 ">
-                        <h4 class="text-uppercase text-dark" >Expense Details </h4>
-                    </div>
-                    <div class="col-4 "></div>
+            <div id="Template" class="print-only page tabcontent p-5 m-3" style="display: block; background-color: azure">
+                <div class="text-center">
+                    <h4 class="text-uppercase text-dark">Expense Details</h4>
                 </div>
-                
-                <div class="row extra-info pt-2 mt-3">
-                    <div class="col-1 "></div>
-                    <div class="col-5 ">
-                        <h3 class="text-uppercase" style="color: black;"><b>{{expense.expense_account}}</b></h3>
-                        <p class="address mx-2 p-2"  style="color: black;"> {{expense.company.company_email}}<br>
-                             <br>
-                            {{company.state}}<br>
-                            {{company.pincode}}<br>
-                        </p>                    
-                    </div>
-                    <div class="col-1 "></div>
-                    <div class="col-5">
-                        
-                        <section class="d-flex justify-content-between">
-                            <div class="top-right">
-                                <div class="graphic-path text-center">
-                                    <h5 class="text-capitalize">{{c.item_name}}</h5>
-                                    <p class="text-capitalize" id="pid" hidden>{{c.credit_note}}</p>
-                                </div>
-                                <div class="position-relative">
-                                    
-                                </div>
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
-
-
-                <section class="store-user mt-2">
-                    <div class="col-12">
-                        <div class="row pb-3">
-
-                            <div class="col-1 "></div>
-                            <div class="col-5">
-                               
-                            </div>
-                            <div class="col-1"></div>
-                            <!-- <div class="col-5 mt-5">
-                                <p>Bill Date : &nbsp <span style="color: black;">{{recur_bill.start_date|date:'d-m-Y'}}</span></p>
-                                <p>Due Date : &nbsp <span style="color: black;">{{recur_bill.end_date|date:'d-m-Y'}}</span></p>
-                                <p>Term : &nbsp <span style="color: black;">NET {{recur_bill.payment_terms}}</span></p>
-
-                            </div> -->
-
-                            <div class="col-5">
-                                <p style=" font-size: 18px;  font-weight: 700;">Bill To,</p>
-                                <h6  class="mx-3 text-capitalize" style="color: black; ">{{expense.vendor.first_name}} </h6>
-                                <p class="address col-6 mx-4 p-2" style="margin-left: -14px;">
-                                    {{expense.vendor.vendor_email}}<br>
-                                    {{expense.vendor.bcity}}<br>
-                                    {{expense.vendor.bstate}}<br>
-    
-                                </p>
-
-                            </div>
+            
+                <div class="extra-info mt-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 class="text-uppercase" style="color: black; border-bottom: 1px solid #ccc; padding-bottom: 10px;"><b>{{expense.expense_account}}</b></h3>
+                            <p class="address p-2" style="color: black;">
+                                {{company.company_name}}<br>
+                                {{company.company_email}}<br>
+                                {{company.state}}<br>
+                                {{company.pincode}}<br>
+                            </p>
                         </div>
-
+                    </div>
+                </div>
+            
+                <section class="store-user mt-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 style="font-weight: 700; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Bill To</h4>
+                            <h6 class="text-capitalize" style="color: black;">{{expense.vendor.first_name}}</h6>
+                            <p class="address p-2">
+                                {{expense.vendor.vendor_email}}<br>
+                                {{expense.vendor.bcity}}<br>
+                                {{expense.vendor.bstate}}<br>
+                            </p>
+                        </div>
                     </div>
                 </section>
-
+            
+                <section class="store-user mt-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 style="font-weight: 700; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Deliver To</h4>
+                            <h6 class="text-capitalize" style="color: black;">{{expense.customer_name.customerName}}</h6>
+                            <p class="address p-2">
+                                {{expense.customer_name.customerEmail}}<br>
+                                {{expense.customer_name.city}}<br>
+                                {{expense.customer_name.state}}<br>
+                                {{expense.customer_name.zipcode}}<br>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
                 
                     
 
               
              
 
-                {% comment %} <section class="balance-info p-5">
-                    <div class="row">
-                        <div class="col-8 btn-group">
-                            <!-- <p class="m-0 font-weight-bold" style="color: black;"> Note: </p>
-                            <p class="py-0 px-5" style="color: black;">{{recur_bill.note}}</p> -->
-                        </div>
-                        <div class="col-4">
-                            <table class="table border-0 table-hover">
-                                <tr>
-                                    <td style="font-weight:bold">Sub Total :</td>
-                                    <td style="font-weight:bold">{{recur_bill.sub_total|floatformat:2}}</td>
-                                </tr>
-                                {% if recur_bill.igst != "" %}
-                                <tr>
-                                    <td style="font-weight:bold">IGST :</td>
-                                    <td style="font-weight:bold">{% if recur_bill.igst == None %} 0 {% else %} {{recur_bill.igst|floatformat:2}} {% endif %}</td>
-                                </tr>
-                                {% endif %}
-                                {% if recur_bill.cgst != "" %}
-                                <tr>
-                                    <td style="font-weight:bold">CGST :</td>
-                                    <td style="font-weight:bold">{% if recur_bill.cgst == None %} 0 {% else %} {{recur_bill.cgst|floatformat:2}} {% endif %}</td>
-                                </tr>
-                                {% endif %}
-                                {% if recur_bill.sgst != "" %}
-                                <tr>
-                                    <td style="font-weight:bold">SGST:</td>
-                                    <td style="font-weight:bold">{% if recur_bill.sgst == None %} 0 {% else %} {{recur_bill.sgst|floatformat:2}} {% endif %}</td>
-                                </tr>
-                                {% endif %}
-                                {% if recur_bill.shipping_charge != "" %}
-                                <tr>
-                                    <td style="font-weight:bold">Shipping Charge:</td>
-                                    <td style="font-weight:bold">{{recur_bill.shipping_charge|floatformat:2}}</td>
-                                </tr>
-                                {% endif %}
-                                <tfoot>
-                                    <tr>
-                                        <td style="font-weight:bold">Total:</td>
-                                        <td style="font-weight:bold ;">{{recur_bill.grand_total|floatformat:2}}</td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                    </div>
-                </section> {% endcomment %}
-
+                
             </div>
 
 

@@ -233,12 +233,10 @@
               <label class="col-md-3">Expense Account</label>
               <div class="col-md-6 p-3">
                   <div class="input-group">
-            <select class="form-control form-select text-dark bg-light" id="expense_account" name="expense_account" required>
-
+                    <input type="text" id="myInput" class="dropdown-toggle form-control bg-light text-dark" onkeyup="filterFunction()"  data-bs-toggle="dropdown" aria-expanded="false" placeholder="search reports" >
+                    <select >
               
-
-              
-              <option value="">-- Select Expense Account --</option>
+              <option value=""></option>
                <optgroup class=""label="Accounts Payable">
                 <option value='Accounts Payable'>Accounts Payable</option>
               </optgroup>
@@ -575,13 +573,13 @@ document.getElementById("hsn_code").addEventListener("input", function() {
         <div class="row">
           <label for="destination_of_supply" class="col-md-3">Destination of Supply</label>
           <div class="col-md-6 p-3">
-            <select class="form-control text-dark bg-light form-select" id="destination_of_supply" name="destination_of_supply" value="destination_of_supply">
-              <option value="">-- Select Destination State --</option>
-              <option value="Andaman and Nicobar Islands (AN)">Andaman and Nicobar Islands (AN)</option>
-              <option value="Andhra Pradesh (AP)">Andhra Pradesh (AP)</option>
-              <option value="Arunachal Pradesh (AR)">Arunachal Pradesh (AR)</option>
-              <option value="Assam (AS)">Assam (AS)</option>
-              <option value="Bihar (BR)">Bihar (BR)</option>
+            <select class="form-control text-dark bg-light form-select" id="pos" name="destination_of_supply">
+              <option value=""id="cpos" >-- Select Destination State --</option>
+              <option value="Andaman and Nicobar Islands (AN)"  data-vendor="Vendor1">Andaman and Nicobar Islands (AN)</option>
+              <option value="Andhra Pradesh (AP)" data-vendor="Vendor2">Andhra Pradesh (AP)</option>
+              <option value="Arunachal Pradesh (AR)"  data-vendor="Vendor3">Arunachal Pradesh (AR)</option>
+              <option value="Assam (AS)"  data-vendor="Vendor4">Assam (AS)</option>
+              <option value="Bihar (BR)" data-vendor="Vendor5">Bihar (BR)</option>
               <option value="Chandigarh (CH)">Chandigarh (CH)</option>
               <option value="Chhattisgarh (CT)">Chhattisgarh (CT)</option>
               <option value="Dadra and Nagar Haveli and Daman and Diu (DN)">Dadra and Nagar Haveli and Daman and Diu (DN)</option>
@@ -4333,37 +4331,32 @@ $(document).ready(function() {
 // }
 
 </script>
-
 <script>
-  $(document).ready(function() {
-    // Function to fetch the destination of supply
-    function fetchVendorDestinationOfSupply() {
-      var selectedVendor = $("#vendor").val();
-      console.log("Selected Vendor:", selectedVendor);
+$('#vendor').on('change', function () {
+  var selectedVendorId = $(this).val();  // Get the selected vendor ID
 
-      $.ajax({
-        type: "GET",
-        url: "{% url 'get_vendor_destination_of_supply' %}",
-        data: {
-          vendor: selectedVendor
-        },
-        success: function (response) {
-          var destinationOfSupply = response.destination_of_supply;
-
-          // Update the "Destination of Supply" field in your HTML
-          $("#destination_of_supply").val(destinationOfSupply);
-        },
-        error: function (xhr, status, error) {
+  // Perform an AJAX request to get the destination of supply for the selected vendor
+  $.ajax({
+      type: "GET",
+      url: "{% url 'get_vendor_destination_of_supply' %}",
+      data: {
+          vendor: selectedVendorId
+      },
+      success: function (response) {
+          var placeOfSupply = response.destination_of_supply;
+          
+          // Set the value of the "Place of Supply" field
+          $('#pos').val(placeOfSupply);
+      },
+      error: function (xhr, status, error) {
           console.error(error);
-        }
-      });
-    }
-
-    // Call the function when the vendor selection changes
-    $("#vendor").change(function() {
-      fetchVendorDestinationOfSupply();
-    });
+      }
   });
+});
+
+
+
+
 </script>
 
 
